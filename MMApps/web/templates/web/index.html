@@ -1,9 +1,10 @@
 {% extends 'web/web_base.html' %}
+{% load static%}
 {% block title %} Index {% endblock %}
 
 {% block style %} {% endblock %}<style>
     .custom-bg {
-        background-color: #363636;
+        background-color: black;
     }
 </style>
 {% block body %}
@@ -34,9 +35,67 @@
                 </button>
             </div>
         </div>
-        <div class="lg:max-w-2xl lg:w-full md:w-1/2 w-5/6">
-            <img class="object-cover object-center rounded-lg" alt="hero" src="../../static/web/images/hero.jpg" />
+        <div class="lg:max-w-2xl lg:w-full md:w-1/2 w-full flex justify-center">
+            <img class="object-cover object-center rounded-2xl transform scale-100" alt="hero"
+                src="../../static/web/images/bg.jpg" />
+        </div>
+
+
+    </div>
+</section>
+
+<section class="text-white body-font h-[50%]">
+    <div class="container px-20 py-8 mx-auto flex flex-wrap">
+        <h1 class="text-center text-2xl font-semibold mb-16 w-full">
+            Our <span style="font-family: 'Playwrite IN', cursive; color: red;">Featured</span> Classes
+        </h1>
+        <div class=" lg:w-1/2 w-full mb-5 lg:mb-0 rounded-lg overflow-hidden">
+            <img alt="feature" class="object-cover object-center h-full w-full"
+                src="{% static 'web/images/bgside.jpg' %}" style="height: auto;">
+        </div>
+        <div class="flex flex-col flex-wrap lg:py-6 -mb-5 lg:w-1/2 lg:pl-6 lg:text-left text-center">
+            <div class="flex mb-5 lg:items-start items-center">
+                <div class="flex-grow">
+                    <h2 class="text-white text-lg title-font font-medium mb-2">Shooting Stars</h2>
+                    <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan
+                        taxidermy. Gastropub indxgo juice poutine.</p>
+                    <a class="mt-2 text-indigo-500 inline-flex items-center">Learn More
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="flex mb-5 lg:items-start items-center">
+                <div class="flex-grow">
+                    <h2 class="text-white text-lg title-font font-medium mb-2">The Catalyzer</h2>
+                    <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan
+                        taxidermy. Gastropub indxgo juice poutine.</p>
+                    <a class="mt-2 text-indigo-500 inline-flex items-center">Learn More
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="flex flex-col mb-5 lg:items-start items-center">
+                <div class="flex-grow">
+                    <h2 class="text-white text-lg title-font font-medium mb-2">Neptune</h2>
+                    <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan
+                        taxidermy. Gastropub indxgo juice poutine.</p>
+                    <a class="mt-2 text-indigo-500 inline-flex items-center">Learn More
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+
 {% endblock %}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            background-color: #ffffff;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .content {
+            margin: 20px 0;
+        }
+
+        .btn {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .footer {
+            font-size: 12px;
+            text-align: center;
+            color: #777;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Email Confirmation</h2>
+        </div>
+        <div class="content">
+            <p>Dear {{client_data.email}},</p>
+            <p>Thank you for registering. Please confirm your email address by clicking the button below:</p>
+            <a href="{{verification_url}}" class="btn">Confirm Email</a>
+            <p>If the button above does not work, please copy and paste the following link into your browser:</p>
+            <p><a href="{{verification_url}}">{{verification_url}}</a></p>
+            <p>Thank you!<br>The Team <br><br>MUSCLE-MATRIX</p>
+        </div>
+        <div class="footer">
+            <p>If you did not sign up for this account, you can ignore this email.</p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+<!-- 
+Email with attacment script
+
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+
+def send_confirmation_email(user_email, user_name, confirmation_link):
+    # Render the HTML template with context data
+    html_content = render_to_string('email_template.html', {
+        'User': user_name,
+        'confirmation_link': confirmation_link
+    })
+    text_content = strip_tags(html_content)  # Plain text content for fallback
+
+    # Email subject and sender
+    subject = 'Confirm Your Email Address'
+    from_email = 'your-email@example.com'
+
+    # Create the email
+    email = EmailMultiAlternatives(subject, text_content, from_email, [user_email])
+    email.attach_alternative(html_content, "text/html")
+
+    # Send the email
+    email.send()
+
+-->

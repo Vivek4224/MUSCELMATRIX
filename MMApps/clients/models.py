@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.hashers import make_password
 
 from MMApps.master.models import TimeStamp
 from MMApps.master.helpers.create_primary_key import generate_primary_key
@@ -15,4 +16,5 @@ class Clients(TimeStamp):
     def save(self, *args, **kwargs):
         if not self.client_id:
             self.client_id = generate_primary_key(self.POST_FIX)
+            self.password = make_password(self.password)
         super(Clients, self).save(*args, **kwargs)

@@ -1,101 +1,120 @@
 {% extends 'web/web_base.html' %}
-{% load static%}
-{% block title %} Index {% endblock %}
+{% load static %}
 
-{% block style %} {% endblock %}<style>
-    .custom-bg {
-        background-color: black;
-    }
-</style>
+<head>
+    {% block title %} Home {% endblock %} | MUSCLEMATRIX
+    {% block style %} {% endblock %}<style></style>
+
+</head>
+
 {% block body %}
 
-<section class="bg-custom-bg text-white body-font px-20">
-    <div class="container mx-auto flex px-15 py-24 md:flex-row flex-col items-center">
-        <div
-            class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-            <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium">
-                Unlock Your Potential <br class="hidden lg:inline-block" />with Muscle
-                Matrix
+<body class="loading">
+    <main>
+
+        <div class="intro">
+            <div id="item-intro" class="content content--intro">
+                <div class="content__img-wrap">
+                    <div class="content__img content__img--1">
+                        <div class="content__img-inner" style="background-image:url(../../static/web/images/1.jpg);">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="intro__title">
+                <span class="intro__title-pre">MUSCELMATRIX</span>
             </h1>
-            <p class="mb-8 leading-relaxed">
-                Welcome to Muscle Matrix Gym! Elevate your fitness journey with
-                cutting-edge equipment and a variety of classes tailored for all levels.
-                Our expert trainers are dedicated to helping you achieve your personal
-                best. Join a community that inspires and motivates you every step of the
-                way. Transform your body and mindset—your journey starts here!
-            </p>
-            <div class="flex justify-center">
-                <button
-                    class="inline-flex items-center justify-center px-4 py-2 text-white bg-red-600 rounded-md hover:bg-transparent hover:text-red-600 border-2 border-transparent hover:border-red-600 transition duration-200">
-                    Join Now
-                </button>
-                <button
-                    class="inline-flex items-center justify-center mx-4 px-4 py-2 text-white border border-white rounded-md hover:bg-white hover:text-black transition duration-200">
-                    Learn More
-                </button>
-            </div>
+            <span class="intro__info">Scroll moderately for a better animation experience.</span>
         </div>
-        <div class="lg:max-w-2xl lg:w-full md:w-1/2 w-full flex justify-center">
-            <img class="object-cover object-center rounded-2xl transform scale-100" alt="hero"
-                src="../../static/web/images/bg.jpg" />
-        </div>
-
-
-    </div>
-</section>
-
-<section class="text-white body-font h-[50%]">
-    <div class="container px-20 py-8 mx-auto flex flex-wrap">
-        <h1 class="text-center text-2xl font-semibold mb-16 w-full">
-            Our <span style="font-family: 'Playwrite IN', cursive; color: red;">Featured</span> Classes
-        </h1>
-        <div class=" lg:w-1/2 w-full mb-5 lg:mb-0 rounded-lg overflow-hidden">
-            <img alt="feature" class="object-cover object-center h-full w-full"
-                src="{% static 'web/images/bgside.jpg' %}" style="height: auto;">
-        </div>
-        <div class="flex flex-col flex-wrap lg:py-6 -mb-5 lg:w-1/2 lg:pl-6 lg:text-left text-center">
-            <div class="flex mb-5 lg:items-start items-center">
-                <div class="flex-grow">
-                    <h2 class="text-white text-lg title-font font-medium mb-2">Shooting Stars</h2>
-                    <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                        taxidermy. Gastropub indxgo juice poutine.</p>
-                    <a class="mt-2 text-indigo-500 inline-flex items-center">Learn More
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
+        <div class="content-wrap">
+            <div id="item-1" class="content">
+                <div class="content__img-wrap">
+                    <div class="content__img content__img--1">
+                        <div class="content__img-inner" style="background-image:url(../../static/web/images/4.jpg);">
+                        </div>
+                        <div class="content__img-inner content__img-inner--hidden"
+                            style="background-image:url(../../static/web/images/3.jpg);"></div>
+                    </div>
                 </div>
+                <p class="content__text content__text--center content__text--large"><span data-splitting>Obey the
+                        silence</span><span data-splitting>Rebel in shadows</span></p>
             </div>
-            <div class="flex mb-5 lg:items-start items-center">
-                <div class="flex-grow">
-                    <h2 class="text-white text-lg title-font font-medium mb-2">The Catalyzer</h2>
-                    <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                        taxidermy. Gastropub indxgo juice poutine.</p>
-                    <a class="mt-2 text-indigo-500 inline-flex items-center">Learn More
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
+            <div id="item-2" class="content">
+                <div class="content__img-wrap">
+                    <div class="content__img content__img--1">
+                        <div class="content__img-inner" style="background-image:url(../../static/web/images/6.jpg);">
+                        </div>
+                        <div class="content__img-inner content__img-inner--hidden"
+                            style="background-image:url(../../static/web/images/5.jpg);"></div>
+                    </div>
                 </div>
+                <p class="content__text content__text--left"><span>From Thrones to Chains</span> <span>Surrender of
+                        Sovereignty</span></p>
             </div>
-            <div class="flex flex-col mb-5 lg:items-start items-center">
-                <div class="flex-grow">
-                    <h2 class="text-white text-lg title-font font-medium mb-2">Neptune</h2>
-                    <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                        taxidermy. Gastropub indxgo juice poutine.</p>
-                    <a class="mt-2 text-indigo-500 inline-flex items-center">Learn More
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
+            <div id="item-3" class="content">
+                <div class="content__img-wrap">
+                    <div class="content__img content__img--2">
+                        <div class="content__img-inner" style="background-image:url(../../static/web/images/8.jpg);">
+                        </div>
+                        <div class="content__img-inner content__img-inner--hidden"
+                            style="background-image:url(../../static/web/images/7.jpg);"></div>
+                    </div>
                 </div>
+                <p class="content__text content__text--left">
+                    <span>You make me dream </span><span>Your dreams</span>
+                    <span class="content__text-tiny">
+                        Do you ever dream of a dream so real it makes you question reality? What is reality? Do you
+                        question it? Turn off the light switch. Does it turn off? Question right now: is it a dream? You
+                        always wake up once you realize it's a dream. So, don't wake up. Realize it's a dream. That's
+                        how you enter the real world.
+                    </span>
+                </p>
+            </div>
+            <div id="item-4" class="content">
+                <div class="content__img-wrap">
+                    <div class="content__img content__img--4">
+                        <div class="content__img-inner" style="background-image:url(../../static/web/images/9.jpg);">
+                        </div>
+                        <div class="content__img-inner content__img-inner--hidden"
+                            style="background-image:url(../../static/web/images/10.jpg);"></div>
+                    </div>
+                </div>
+                <p class="content__text content__text--center"><span>Your Willingness is</span> <span>Collective
+                        Triumph</span></p>
+            </div>
+            <div id="item-5" class="content">
+                <div class="content__img-wrap">
+                    <div class="content__img content__img--5">
+                        <div class="content__img-inner" style="background-image:url(../../static/web/images/11.jpg);">
+                        </div>
+                        <div class="content__img-inner content__img-inner--hidden"
+                            style="background-image:url(../../static/web/images/12.jpg);"></div>
+                    </div>
+                </div>
+                <p class="content__text content__text--left"><span>Controlling my feelings</span> <span>for too
+                        long</span></p>
+            </div>
+            <div id="item-6" class="content">
+                <div class="content__img-wrap">
+                    <div class="content__img content__img--6">
+                        <div class="content__img-inner" style="background-image:url(../../static/web/images/13.jpg);">
+                        </div>
+                    </div>
+                </div>
+                <p class="content__text content__text--center"><span>You were never truly loved</span> <span>You have
+                        only been betrayed</span></p>
             </div>
         </div>
-    </div>
-</section>
-
-
+        <p class="credits">Made by <a href="https://twitter.com/codrops">@vivekbarvaliya</a></p>
+    </main>
+    <script src="https://tympanus.net/codrops/adpacks/cda_sponsor.js"></script>
+    <script src="../../static/js/imagesloaded.pkgd.min.js"></script>
+    <script src="../../static/js/splitting.min.js"></script>
+    <script src="../../static/js/gsap.min.js"></script>
+    <script src="../../static/js/ScrollTrigger.min.js"></script>
+    <script src="../../static/js/lenis.min.js"></script>
+    <script type="module" src="../../static/js/index.js"></script>
+</body>
 {% endblock %}
+
+</html>

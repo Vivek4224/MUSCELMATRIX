@@ -7,152 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="../../static/web/images/logo.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../static/css/base.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/eay5gla.css">
+    <link rel="shortcut icon" href="../../static/web/images/favicon.png" type="image/x-icon">
 
     <title>
         {% block title %}{% endblock %} | MUSCLEMATRIX
     </title>
     {% block style %}{% endblock %}
-    <style>
-        body {
-            font-family: sans-serif;
-            background-color: black;
-            color: #FFFFFF;
-        }
 
-        nav {
-            background: black;
-            color: #FFFFFF;
-        }
-
-        .active-link {
-            color: #E72614;
-            /* Active link color */
-            font-weight: bold;
-            /* Make the font bold */
-        }
-    </style>
+    <script>document.documentElement.className = "js";</script>
+    <script src="//tympanus.net/codrops/adpacks/analytics.js"></script>
 </head>
 
 <body>
     <nav class="border-gray-700 sticky top-0 shadow-2xl z-10 border-b border-gray-700">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4">
-            <a href="{% url 'index_view' %}" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="{% static 'web/images/logo.png' %}" class="h-16" alt="Muscle Matrix Logo" />
-                <span class="self-center text-xl font-semibold whitespace-nowrap text-white">MUSCLEMATRIX</span>
-            </a>
-            <button data-collapse-toggle="navbar-default" type="button"
-                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-600"
-                aria-controls="navbar-default" aria-expanded="false" id="navbar-toggle">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 17 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M1 1h15M1 7h15M1 13h15" />
-                </svg>
-            </button>
-            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                <ul
-                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-700 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
-                    <li>
-                        <a href="{% url 'index_view'%}"
-                            class="block py-2 px-3 text-white bg-red-600 rounded md:bg-transparent md:text-red-600 md:p-0 active-link"
-                            aria-current="page">Home</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-3 text-gray-400 rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0">About</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-3 text-gray-400 rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0">Services</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-3 text-gray-400 rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0">Pricing</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-3 text-gray-400 rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0">Contact</a>
-                    </li>
-                </ul>
-
+        <div class="frame">
+            <h1 class="frame__title">MUSCELMATRIX</h1>
+            <div class="flex gap-8">
+                <a class="frame__a" href="{% url 'index_view' %}">Home</a>
+                <a class="frame__a" href="#">Services</a>
+                <a class="frame__a" href="#">About Us</a>
+                <a class="frame__a" href="#">Contact</a>
             </div>
-            <div class="flex space-x-4 mt-4 md:mt-0">
+            <div class="flex gap-8">
                 {% if request.session.client_id %}
-                <a href="{% url 'index_view' %}"
-                    class="inline-flex items-center justify-center px-4 py-2 text-white bg-red-600 rounded-md hover:bg-transparent hover:text-red-600 border-2 border-transparent hover:border-red-600 transition duration-200">
-                    Profile
-                </a>
-                <a href="#"
-                    class="inline-flex items-center justify-center px-4 py-2 text-white bg-red-600 rounded-md hover:bg-transparent hover:text-red-600 border-2 border-transparent hover:border-red-600 transition duration-200">
-                    Logout
-                </a>
+                <a class="frame_login" href="#">Profile</a>
+                <a class="frame__prev" href="{% url 'logout' %}">Logout</a>
                 {% else %}
-                <a href="{% url 'login_view' %}"
-                    class="inline-flex items-center justify-center px-4 py-2 text-white bg-red-600 rounded-md hover:bg-transparent hover:text-red-600 border-2 border-transparent hover:border-red-600 transition duration-200">
-                    Login
-                </a>
-                <a href="{% url 'register_view' %}"
-                    class="inline-flex items-center justify-center mx-4 px-4 py-2 text-white border border-white rounded-md hover:bg-white hover:text-black transition duration-200">
-                    Register
-                </a>
+                <a class="frame_login" href="{% url 'login_view' %}">Login</a>
+                <a class="frame__prev" href="{% url 'register_view' %}">Register</a>
                 {% endif %}
             </div>
         </div>
     </nav>
     {% block body %}{% endblock %}
-
-    <footer class="text-gray-600 body-font px-20 border-t border-gray-700">
-        <div class="container px-15 py-4 mx-auto flex items-center sm:flex-row flex-col">
-            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-600">
-                <a href="{% url 'index_view' %}" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="{% static 'web/images/logo.png' %}" class="h-16" alt="Muscle Matrix Logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">MUSCLEMATRIX</span>
-                </a>
-            </a>
-            <p class="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-700 sm:py-2 sm:mt-0 mt-4">
-                &copy; <span id="currentYear"></span> Muscle Matrix —
-                <a href="https://twitter.com/knyttneve" class="text-gray-400 ml-1" rel="noopener noreferrer"
-                    target="_blank">@Tops Technologies Pvt. Ltd.</a>
-            </p>
-            <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-                <a class="text-gray-400">
-                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        class="w-5 h-5" viewBox="0 0 24 24">
-                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                    </svg>
-                </a>
-                <a class="ml-3 text-gray-400">
-                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        class="w-5 h-5" viewBox="0 0 24 24">
-                        <path
-                            d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
-                        </path>
-                    </svg>
-                </a>
-                <a class="ml-3 text-gray-400">
-                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-                    </svg>
-                </a>
-                <a class="ml-3 text-gray-400">
-                    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
-                        <path stroke="none"
-                            d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
-                        </path>
-                        <circle cx="4" cy="4" r="2" stroke="none"></circle>
-                    </svg>
-                </a>
-            </span>
-        </div>
-    </footer>
-
     <script>
         const navbarToggle = document.getElementById('navbar-toggle');
         const navbarMenu = document.getElementById('navbar-default');

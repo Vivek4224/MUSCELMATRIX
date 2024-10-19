@@ -14,17 +14,17 @@ from .emailHelpers import send_activation_email
 import time
 import jwt
 
-# def login_required(view_func):
-#     @wraps(view_func)
-#     def _wrapped_view(request, *args, **kwargs):
-#         # Check if 'client_id' is in the session
-#         if 'client_id' in request.session:
-#             # The user is authenticated, proceed to the view
-#             return view_func(request, *args, **kwargs)
-#         else:
-#             # The user is not authenticated, redirect to the login view
-#             return redirect('login_view')
-#     return _wrapped_view
+def login_required(view_func):
+    @wraps(view_func)
+    def _wrapped_view(request, *args, **kwargs):
+        # Check if 'client_id' is in the session
+        if 'client_id' in request.session:
+            # The user is authenticated, proceed to the view
+            return view_func(request, *args, **kwargs)
+        else:
+            # The user is not authenticated, redirect to the login view
+            return redirect('login_view')
+    return _wrapped_view
 
 class webView:
     def index_view(self, request):
@@ -146,6 +146,12 @@ class authView:
 
     def forgot_password(self, request):
         return render(request, 'web/forgot_password.html')
+    
+    @method_decorator(login_required)
+    def logout(self, request):
+        request.session.clear()
+        messages.success(request, "Now, you are logged out.")
+        return redirect('index_view')
     
 webViewObject = webView()
 authViewObject = authView()

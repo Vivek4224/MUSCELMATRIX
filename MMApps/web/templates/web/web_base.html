@@ -32,7 +32,7 @@
             </div>
             <div class="flex gap-8">
                 {% if request.session.client_id %}
-                <a class="frame_login" href="#">Profile</a>
+                <a class="frame_login" href="{% url 'profile_view' %}">Profile</a>
                 <a class="frame__prev" href="{% url 'logout' %}">Logout</a>
                 {% else %}
                 <a class="frame_login" href="{% url 'login_view' %}">Login</a>

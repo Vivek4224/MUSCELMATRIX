@@ -450,3 +450,43 @@ body #cdawrap {
     justify-self: end;
   }
 }
+
+/* t&c style */
+.tac_container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.659);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  opacity: 0.95;
+}
+
+.tac_container p {
+  text-align: center;
+}
+
+.tac_container h1 {
+  /* Changed from .t&c_container to .tac_container */
+  text-align: center;
+  margin-bottom: 20px;
+  color: #66b3ff;
+  font-family: "AlphaLyrae", sans-serif;
+}
+
+.tac_content h2 {
+  /* Changed from .t&c_container to .tac_container */
+  margin-top: 20px;
+  color: #66b3ff; /* Lighter blue for headings */
+}
+
+.tac_content p {
+  text-align: justify;
+}
+
+.tac_container .tac_content p {
+  /* Changed from .t&c_content to .tac_content */
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #fff; /* Ensure paragraph text is white for contrast */
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Muscle Matrix</title>
+    <link rel="stylesheet" href="../../static/css/profile.css">
+    <link rel="stylesheet" href="../../static/css/base.css">
+</head>
+
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="../../static/web/images/profile.jpeg" alt="Profile Picture" class="profile-picture">
+            <!-- Replace with actual image path -->
+            <h1 class="profile-name">Vivek Barvaliya</h1>
+        </div>
+        <div class="profile-info">
+            <div class="info-item">
+                <label>Email:</label>
+                <p>vivekbarvaliya4224@gmail.com</p>
+            </div>
+            <div class="info-item">
+                <label>Mobile:</label>
+                <p>+91 97231 92735</p>
+            </div>
+            <div class="info-item">
+                <label>Gender:</label>
+                <p>Male</p>
+            </div>
+            <div class="info-item">
+                <label>DOB:</label>
+                <p>22/08/2003</p>
+            </div>
+            <div class="info-item">
+                <label>Address:</label>
+                <p>123 Fitness Lane, Gym City, CA 12345</p>
+            </div>
+        </div>
+        <div class="logout_btn">
+            <a class="frame__prev" href="{% url 'logout' %}">Logout</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="../../static/js/profile.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+body {
+  font-family: Arial, sans-serif;
+  background: url("../web/images/loginbg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.659);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  overflow: hidden;
+}
+
+.profile-header {
+  text-align: center;
+}
+
+.profile-picture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 2px solid white;
+}
+
+.profile-name {
+  color: white;
+  margin: 0;
+}
+
+.profile-info {
+  margin-top: 20px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.info-item label {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.info-item p {
+  color: white;
+}
+
+.logout_btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.frame__prev {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.frame__prev:hover {
+  background: white;
+  color: blue;
+}

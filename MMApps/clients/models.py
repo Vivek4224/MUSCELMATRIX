@@ -12,6 +12,7 @@ class Clients(TimeStamp):
     password = models.CharField(max_length=255,null=False,blank=False)
     is_verified_tac = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
+    otp = models.CharField(max_length=255, default='123456')
 
     def save(self, *args, **kwargs):
         if not self.client_id:

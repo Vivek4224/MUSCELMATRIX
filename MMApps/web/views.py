@@ -38,7 +38,7 @@ class webView:
         return render(request, 'web/profile.html')
     
     def tac_view(self, request):
-        return render(request, 'web/t&c.html')
+        return render(request, 'web/tac.html')
     
 class authView:    
     def login_view(self, request):
@@ -70,7 +70,7 @@ class authView:
             mobile_ = request.POST['mobile']
             password_ = request.POST['password']
             confirm_password_ = request.POST['confirm_password']
-            terms_and_condition_ = request.POST['t&c']
+            terms_and_condition_ = request.POST['tac']
 
             if terms_and_condition_ == "on":
                 terms_and_condition_ = True

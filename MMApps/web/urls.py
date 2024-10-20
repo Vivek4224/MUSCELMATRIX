@@ -4,7 +4,7 @@ from MMApps.web.views import webViewObject,authViewObject
 urlpatterns = [
     path('', webViewObject.index_view, name='index_view'),
     path('profile/', webViewObject.profile_view, name='profile_view'),
-    path('t&c/', webViewObject.tac_view,name='tac_view'),
+    path('tac/', webViewObject.tac_view,name='tac_view'),
     path('login/', authViewObject.login_view, name='login_view'),
     path('logout/', authViewObject.logout, name='logout'),
     path('register/', authViewObject.register_view, name='register_view'),

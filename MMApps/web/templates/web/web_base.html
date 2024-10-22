@@ -27,8 +27,8 @@
             <div class="flex gap-8">
                 <a class="frame__a" href="{% url 'index_view' %}">Home</a>
                 <a class="frame__a" href="#">Services</a>
-                <a class="frame__a" href="#">About Us</a>
-                <a class="frame__a" href="#">Contact</a>
+                <a class="frame__a" href="{% url 'about_view' %}">About Us</a>
+                <a class="frame__a" href="{% url 'contact_view' %}">Contact</a>
             </div>
             <div class="flex gap-8">
                 {% if request.session.client_id %}

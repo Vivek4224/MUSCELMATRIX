@@ -33,6 +33,12 @@ class webView:
     def index_view(self, request):
         return render(request, 'web/index.html')
     
+    def about_view(self, request):
+        return render(request, 'web/About.html')
+    
+    def contact_view(self, request):
+        return render(request, 'web/contact.html')
+    
     @method_decorator(login_required)
     def profile_view(self, request):
         return render(request, 'web/profile.html')

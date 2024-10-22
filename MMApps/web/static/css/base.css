@@ -95,24 +95,16 @@ a:hover {
   outline: none;
 }
 
-/* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
 a:focus {
-  /* Provide a fallback style for browsers
-	 that don't support :focus-visible */
   outline: none;
   background: lightgrey;
 }
 
 a:focus:not(:focus-visible) {
-  /* Remove the focus indicator on mouse-focus for browsers
-	 that do support :focus-visible */
   background: transparent;
 }
 
 a:focus-visible {
-  /* Draw a very noticeable focus style for
-	 keyboard-focus on browsers that do support
-	 :focus-visible */
   outline: 2px solid red;
   background: transparent;
 }
@@ -485,8 +477,83 @@ body #cdawrap {
 }
 
 .tac_container .tac_content p {
-  /* Changed from .t&c_content to .tac_content */
   line-height: 1.6;
   margin-bottom: 15px;
-  color: #fff; /* Ensure paragraph text is white for contrast */
+  color: #fff;
+}
+
+/* Contact Form Styles */
+.contact-form {
+  width: 1000px;
+  height: auto;
+  margin: 0rem auto;
+  padding: 2.5rem;
+  background-image: url("../../static/web/images/contactbg.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  opacity: 0.95;
+  backdrop-filter: blur(10px);
+}
+
+.contact-form h2 {
+  text-align: center;
+  color: var(--color-title);
+  margin-bottom: 1.5rem;
+  font-family: "AlphaLyrae", sans-serif;
+  font-size: 2rem;
+}
+
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-title);
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--color-text);
+  font-size: 1rem;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--color-bg-alt);
+  background-color: rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+
+.contact-form textarea {
+  min-height: 200px;
+  resize: vertical;
+}
+
+.btn-submit {
+  background-color: var(--color-bg-alt);
+  color: var(--color-text);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-submit:hover {
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-bg-alt);
+  color: var(--color-bg-alt);
 }

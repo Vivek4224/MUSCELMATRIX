@@ -1,84 +1,128 @@
+{% extends 'web/web_base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../../static/web/images/logo.png" type="image/x-icon">
-    <!-- Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet" />
+    {% block title %} Login {% endblock %} | MUSCLEMATRIX
+    {% block style %} {% endblock %}<style></style>
 
-    <link rel="stylesheet" type="text/css" href="../../static/css/base.css" />
-    <link rel="stylesheet" href="https://use.typekit.net/eay5gla.css">
-
-    <title>Login</title>
 </head>
 
-<body>
-    <section class="relative bg-gray-100 dark:bg-gray-900 h-screen overflow-hidden">
-        <img src="{% static 'web/images/loginbg.jpg' %}" alt="Background"
-            class="absolute inset-0 object-cover w-full h-full">
-        <div class="absolute inset-0 bg-black opacity-20"></div> <!-- Dark overlay -->
-        <div class="flex items-center justify-center h-full px-6 py-8 relative z-10">
+{% block body %}
 
-            <div class="w-full max-w-lg rounded-lg shadow-xl p-6 space-y-4 bg-black bg-opacity-70">
-                <h1 class="intro__title-pre">
-                    <a href="{% url 'index_view' %}"
-                        class="flex items-center justify-center mb-4 text-4xl font-bold text-white">
-                        MUSCLEMATRIX
-                    </a>
-                </h1>
-                <h1 class="text-3xl font-semibold text-white text-center">Sign in to your account</h1>
-                <!-- start message section -->
-                {% if messages %}
-                {% for message in messages %}
-                <div class="p-4 mb-4 rounded-lg text-white flex items-center justify-between {% if message.tags == 'error' %}bg-red-500{% elif message.tags == 'warning' %}bg-yellow-400{% elif message.tags == 'success' %}bg-green-500{% elif message.tags == 'info' %}bg-blue-400{% endif %}"
-                    role="alert">
-                    <p>{{ message }}</p>
-                    <button type="button" class="ml-4 px-2 py-1 rounded bg-gray-800 text-white hover:bg-gray-700"
-                        onclick="this.parentElement.remove();" aria-label="Close">
-                        &times;
-                    </button>
+<body class="loading">
+    <main>
+
+        <div class="intro">
+            <div id="item-intro" class="content content--intro">
+                <div class="content__img-wrap">
+                    <div class="content__img content__img--1">
+                        <div class="content__img-inner"
+                            style="background-image:url(../../static/web/images/login/login_main.jpg);">
+                        </div>
+                    </div>
                 </div>
-                {% endfor %}
-                {% endif %}
-                <!-- end message section -->
-                <form class="space-y-4" action="#" method="post">
-                    {% csrf_token %}
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-300">Your email</label>
-                        <input type="email" name="email" id="email" placeholder="name@company.com"
-                            class="block w-full p-3 border border-gray-600 rounded-lg shadow-sm bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            required="">
+            </div>
+            <h1 class="intro__title">
+                <span class="intro__title-pre">Login MUSCELMATRIX</span>
+            </h1>
+            <span class="intro__info">Scroll moderately for a better animation experience.</span>
+        </div>
+        <div class="content-wrap">
+            <div id="item-1" class="content">
+                <div class="content__img-wrap">
+                    <div class="content__img content__img--1">
+                        <div class="content__img-inner"
+                            style="background-image:url(../../static/web/images/login/login2.jpg);">
+                        </div>
+                        <div class="content__img-inner content__img-inner--hidden"
+                            style="background-image:url(../../static/web/images/login/login1.jpg);"></div>
                     </div>
-
-                    <div>
-                        <label for="password" class="block mb-2 text-sm font-medium text-gray-300">Password</label>
-                        <input type="password" name="password" id="password" placeholder="••••••••"
-                            class="block w-full p-3 border border-gray-600 rounded-lg shadow-sm bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            required="">
-                    </div>
-                    <div class="flex items-center justify-end">
-                        <a href="{% url 'forgot_password_view' %}"
-                            class="text-medium text-blue-500 hover:underline">Forgot
-                            password?</a>
-                    </div>
-                    <button type="submit"
-                        class="w-full text-white bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 font-medium rounded-lg py-2 transition duration-200">
-                        Sign in
-                    </button>
-                </form>
-                <p class="mt-4 text-sm text-gray-400 text-center">
-                    Don’t have an account yet? <a href="{% url 'register_view' %}"
-                        class="font-medium text-blue-500 hover:underline">Sign up</a>
-                </p>
+                </div>
+                <p class="content__text content__text--center content__text--large"><span data-splitting>Obey the
+                        silence</span><span data-splitting>Rebel in shadows</span></p>
             </div>
 
-        </div>
-    </section>
+            <div class="flex items-center justify-center h-full px-6 py-8 relative z-10">
+                <div class="w-full max-w-2xl rounded-lg shadow-xl p-6 space-y-4 bg-black bg-opacity-70"
+                    style="background-image: url('../../static/web/images/login/login_main.jpg'); background-size: cover; background-position: center; backdrop-filter: blur(10px);">
+                    <h1 class="intro__title-pre text-white text-center">
+                        <a href="{% url 'index_view' %}"
+                            class="flex items-center justify-center mb-4 text-4xl font-bold">
+                            MUSCLEMATRIX
+                        </a>
+                    </h1>
+                    <h1 class="text-3xl font-semibold text-white text-center">Sign in to your account</h1>
 
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="p-4 mb-4 rounded-lg text-white flex items-center justify-between 
+                                {% if message.tags == 'error' %}bg-red-500{% elif message.tags == 'warning' %}bg-yellow-400{% elif message.tags == 'success' %}bg-green-500{% elif message.tags == 'info' %}bg-blue-400{% endif %}"
+                        role="alert">
+                        <p>{{ message }}</p>
+                        <button type="button" class="ml-4 px-2 py-1 rounded bg-gray-800 text-white hover:bg-gray-700"
+                            onclick="this.parentElement.remove();" aria-label="Close">&times;</button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+
+                    <form class="space-y-4" action="#" method="post">
+                        {% csrf_token %}
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-300">Your email</label>
+                            <input type="email" name="email" id="email" placeholder="name@company.com"
+                                class="block w-full p-3 border border-gray-600 rounded-lg shadow-sm bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                required="">
+                        </div>
+
+                        <div>
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-300">Password</label>
+                            <input type="password" name="password" id="password" placeholder="••••••••"
+                                class="block w-full p-3 border border-gray-600 rounded-lg shadow-sm bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                required="">
+                        </div>
+                        <div class="flex items-center justify-end">
+                            <a href="{% url 'forgot_password_view' %}"
+                                class="text-medium text-blue-500 hover:underline">Forgot
+                                password?</a>
+                        </div>
+                        <button type="submit"
+                            class="w-full text-white bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 font-medium rounded-lg py-2 transition duration-200">
+                            Sign in
+                        </button>
+                    </form>
+                    <p class="mt-4 text-sm text-gray-400 text-center">
+                        Don’t have an account yet? <a href="{% url 'register_view' %}"
+                            class="font-medium text-blue-500 hover:underline">Sign up</a>
+                    </p>
+                </div>
+            </div>
+
+
+
+            <div id="item-2" class="content">
+                <div class="content__img-wrap">
+                    <div class="content__img content__img--1">
+                        <div class="content__img-inner"
+                            style="background-image:url(../../static/web/images/login/login4.jpg);">
+                        </div>
+                        <div class="content__img-inner content__img-inner--hidden"
+                            style="background-image:url(../../static/web/images/login/login3.jpg);"></div>
+                    </div>
+                </div>
+                <p class="content__text content__text--left"><span>From Thrones to Chains</span> <span>Surrender of
+                        Sovereignty</span></p>
+            </div>
+        </div>
+        <p class="credits">Made by <a href="https://twitter.com/codrops">@vivekbarvaliya</a></p>
+    </main>
+    <script src="https://tympanus.net/codrops/adpacks/cda_sponsor.js"></script>
+    <script src="../../static/js/imagesloaded.pkgd.min.js"></script>
+    <script src="../../static/js/splitting.min.js"></script>
+    <script src="../../static/js/gsap.min.js"></script>
+    <script src="../../static/js/ScrollTrigger.min.js"></script>
+    <script src="../../static/js/lenis.min.js"></script>
+    <script type="module" src="../../static/js/index.js"></script>
 </body>
+{% endblock %}
 
 </html>

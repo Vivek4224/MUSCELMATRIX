@@ -2,49 +2,198 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile - Muscle Matrix</title>
-    <link rel="stylesheet" href="../../static/css/profile.css">
-    <link rel="stylesheet" href="../../static/css/base.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <link rel="shortcut icon" href="../../static/web/images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../../static/css/profile.css" />
+    <link rel="stylesheet" href="../../static/css/base.css" />
 </head>
 
 <body>
-    <div class="profile-container">
-        <div class="profile-header">
-            <img src="../../static/web/images/profile.jpeg" alt="Profile Picture" class="profile-picture">
-            <!-- Replace with actual image path -->
-            <h1 class="profile-name">Vivek Barvaliya</h1>
+    <div class="container">
+        <div class="profile_picture">
+            <div class="profile-header">
+                <img src="../../static/web/images/profile.jpeg" alt="Profile Picture" class="profile-picture" />
+                <!-- Replace with actual image path -->
+                <h1 class="profile-name">Vivek Barvaliya</h1>
+            </div>
+            <div class="subscription">
+                <div class="rounded-lg shadow-2xl overflow-hidden m-4">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-semibold text-white-800 mb-2">
+                            Subscription Details
+                        </h2>
+                        <div class="flex items-center mb-4">
+                            <div class="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <svg class="h-6 w-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12S18.627 0 12 0zm0 22c-5.524 0-10-4.476-10-10S6.476 2 12 2s10 4.476 10 10-4.476 10-10 10zm-1-15h2v6h-2zm0 8h2v2h-2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-white-600">
+                                Plan Name:
+                                <span class="font-medium text-white-800">200 - 300</span>
+                            </p>
+                        </div>
+
+                        <div class="details">
+                            <div class="first_details">
+                                <div class="mb-4">
+                                    <p class="text-sm text-white-600">Start Date:</p>
+                                    <p class="text-lg font-medium text-white-800">20-04-24</p>
+                                </div>
+                                <div class="mb-4">
+                                    <p class="text-sm text-white-600">End Date:</p>
+                                    <p class="text-lg font-medium text-white-800">20-05-2024</p>
+                                </div>
+                            </div>
+                            <div class="second_details">
+                                <div class="mb-4">
+                                    <p class="text-sm text-white-600">Duration:</p>
+                                    <p class="text-lg font-medium text-white-800">3 Months</p>
+                                </div>
+                                <div class="mb-4">
+                                    <p class="text-sm text-white-600">Status:</p>
+                                    <p class="text-lg font-medium">
+                                        <span class="px-2 py-1 rounded-full text-white">Active</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="third_details">
+                                <p>
+                                    At MuscleMatrix, <br />
+                                    we believe in empowering you to <br />achieve your fitness
+                                    goals with <br />
+                                    our flexible membership plans.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex justify-start">
+                            <a class="frame__prev" href="#">Renew Plan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="profile-info">
-            <div class="info-item">
-                <label>Email:</label>
-                <p>vivekbarvaliya4224@gmail.com</p>
+
+        <div class="profile-container">
+            <div class="first_info">
+                <div class="profile-info">
+                    <div class="info-item">
+                        <label>First Name:</label>
+                        <p>Vivek</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Last Name:</label>
+                        <p>Barvaliya</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Email:</label>
+                        <p>vivekbarvaliya4224@gmail.com</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Mobile:</label>
+                        <p>+91 97231 92735</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Gender:</label>
+                        <p>Male</p>
+                    </div>
+                    <div class="info-item">
+                        <label>DOB:</label>
+                        <p>22/08/2003</p>
+                    </div>
+                </div>
             </div>
-            <div class="info-item">
-                <label>Mobile:</label>
-                <p>+91 97231 92735</p>
+            <div class="second_info">
+                <div class="profile-info">
+                    <div class="info-item">
+                        <label>Address Line-1:</label>
+                        <p>42, Opera homes, nansad road</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Address Line-2:</label>
+                        <p>kamrej, surat</p>
+                    </div>
+                    <div class="info-item">
+                        <label>City:</label>
+                        <p>Surat</p>
+                    </div>
+                    <div class="info-item">
+                        <label>State:</label>
+                        <p>Gujarat</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Zipcode:</label>
+                        <p>394180</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Country:</label>
+                        <p>India</p>
+                    </div>
+                </div>
             </div>
-            <div class="info-item">
-                <label>Gender:</label>
-                <p>Male</p>
-            </div>
-            <div class="info-item">
-                <label>DOB:</label>
-                <p>22/08/2003</p>
-            </div>
-            <div class="info-item">
-                <label>Address:</label>
-                <p>123 Fitness Lane, Gym City, CA 12345</p>
+            <div class="third_info">
+                <div class="profile-info">
+                    <div class="info-item">
+                        <label>Height:</label>
+                        <p>5'8" ft</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Weight:</label>
+                        <p>90 kg</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Chest:</label>
+                        <p>40" inch</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Waist:</label>
+                        <p>25" inch</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Hip:</label>
+                        <p>25" inch</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Body Fat:</label>
+                        <p>30%</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="logout_btn">
-            <a class="frame__prev" href="{% url 'logout' %}">Logout</a>
+        <div class="btn">
+            <a class="frame__prev" href="{% url 'index_view' %}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5" />
+                </svg>
+                Home</a>
+            <a class="frame__prev" href="{% url 'edit_profile_view' %}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path
+                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                    <path fill-rule="evenodd"
+                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                </svg>
+                Edit</a>
+            <a class="frame__prev" href="{% url 'logout' %}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+                    <path fill-rule="evenodd"
+                        d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+                </svg>
+                Logout</a>
         </div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-    <script src="../../static/js/profile.js"></script>
 </body>
 
 </html>

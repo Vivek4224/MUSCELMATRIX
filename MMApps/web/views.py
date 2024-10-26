@@ -43,6 +43,10 @@ class webView:
     def profile_view(self, request):
         return render(request, 'web/profile.html')
     
+    @method_decorator(login_required)
+    def edit_profile_view(self, request):
+        return render(request,'web/profile_form/edit_profile.html')
+    
     def tac_view(self, request):
         return render(request, 'web/tac.html')
     

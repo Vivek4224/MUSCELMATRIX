@@ -7,6 +7,7 @@ urlpatterns = [
     path('contact/', webViewObject.contact_view, name='contact_view'),
     path('profile/', webViewObject.profile_view, name='profile_view'),
     path('edit-profile/', webViewObject.edit_profile_view, name='edit_profile_view'),
+    path('edit-profile-picture/', webViewObject.edit_profile_picture, name='edit_profile_picture'),
     path('tac/', webViewObject.tac_view,name='tac_view'),
     path('login/', authViewObject.login_view, name='login_view'),
     path('logout/', authViewObject.logout, name='logout'),

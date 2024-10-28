@@ -7,7 +7,7 @@ from django.conf import settings
 
 from functools import wraps
 
-from MMApps.clients.models import Clients
+from MMApps.clients.models import Clients, ClientProfile, ClientAddress, ClientMeasurements
 from MMApps.master.helpers.check_password import is_valid_password
 from MMApps.master.helpers.JWTToken import create_jwt_token,decode_jwt_token
 from MMApps.master.helpers.create_otp import generate_otp
@@ -41,11 +41,100 @@ class webView:
     
     @method_decorator(login_required)
     def profile_view(self, request):
+        account_info = Clients.objects.filter(client_id=request.session['client_id']).first()
+        profile_info = ClientProfile.objects.filter(client_id=request.session['client_id']).first()
+        address_info = ClientAddress.objects.filter(client_id=request.session['client_id']).first()
+        measurements_info = ClientMeasurements.objects.filter(client_id=request.session['client_id']).first()
+        # subscription_info = ClientSubscription.objects.filter(client_id=request.session['client_id']).first()
+
+        context = {
+                    'account_info': account_info,
+                    'profile_info': profile_info,
+                    'address_info': address_info,
+                    'measurements_info': measurements_info,
+                    # 'subscription': subscription_info
+                }
         return render(request, 'web/profile.html')
     
     @method_decorator(login_required)
     def edit_profile_view(self, request):
-        return render(request,'web/profile_form/edit_profile.html')
+        if request.method == 'POST':
+            first_name_ = request.POST['first_name']
+            last_name_ = request.POST['last_name']
+            mobile_ = request.POST['mobile']
+            gender_ = request.POST['gender']
+            dob_ = request.POST['date_of_birth']
+            adderss_line1_ = request.POST['line1']
+            adderss_line2_ = request.POST['line2']
+            city_ = request.POST['city']
+            state_ = request.POST['state']
+            zipcode_ = request.POST['zipcode']
+            country_ = request.POST['country']
+            height_ = request.POST['height']
+            weight_ = request.POST['weight']
+            waist_ = request.POST['waist']
+            hip_ = request.POST['hip']
+            chest_ = request.POST['chest']
+            body_fat_ = request.POST['body_fat']
+
+            get_account_info = Clients.objects.get(client_id=request.session['client_id'])
+            get_account_info.mobile = mobile_
+            get_account_info.save()
+
+            get_profile_info = ClientProfile.objects.get(client_id=request.session['client_id'])
+            get_profile_info.first_name = first_name_
+            get_profile_info.last_name = last_name_
+            get_profile_info.gender = gender_
+
+            if not dob_:
+                get_profile_info.dob = None  # Handle empty date value
+            else:
+                get_profile_info.dob = dob_
+
+
+            get_profile_info.save()
+
+            get_address_info = ClientAddress.objects.get(client_id=request.session['client_id'])
+            get_address_info.address_line1 = adderss_line1_
+            get_address_info.address_line2 = adderss_line2_
+            get_address_info.city = city_
+            get_address_info.state = state_
+            get_address_info.zip_code = zipcode_
+            get_address_info.country = country_
+            get_address_info.save()
+
+            get_measurements_info = ClientMeasurements.objects.get(client_id=request.session['client_id'])
+            get_measurements_info.height = height_
+            get_measurements_info.weight = weight_
+            get_measurements_info.waist = waist_
+            get_measurements_info.hip = hip_
+            get_measurements_info.chest = chest_
+            get_measurements_info.body_fat= body_fat_
+            get_measurements_info.save()
+
+            messages.success(request, "Profile updated successfully.")
+        return render(request, 'web/profile_form/edit_profile.html')
+        
+    def edit_profile_picture(self, request):
+        if request.method == 'POST':
+            if 'profile' in request.FILES:
+                profile_picture_ = request.FILES['profile']
+                try:
+                    # Get the client's profile
+                    get_profile_info = ClientProfile.objects.get(client_id=request.session['client_id'])
+                    
+                    # Update the profile picture
+                    get_profile_info.profile = profile_picture_
+                    get_profile_info.save()
+                    
+                    messages.success(request, "Profile picture updated successfully.")
+                except ClientProfile.DoesNotExist:
+                    messages.error(request, "Client profile not found.")
+            else:
+                messages.error(request, "No profile picture uploaded.")
+            
+            # Redirect to the profile view page
+            return redirect('profile_view')
     
     def tac_view(self, request):
         return render(request, 'web/tac.html')

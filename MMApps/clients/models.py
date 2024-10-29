@@ -32,7 +32,7 @@ class ClientProfile(TimeStamp):
 
     POST_FIX = 'client_profile'
     client = models.ForeignKey(Clients, on_delete=models.CASCADE, related_name='clients')
-    profile = models.ImageField(upload_to=f'{POST_FIX}s/', default='default-images/client-default.png')
+    profile = models.ImageField(upload_to=f'{POST_FIX}s/', default='media/default-images/default_profile.png')
     first_name = models.CharField(max_length=255, null=True, blank=True)
     last_name = models.CharField(max_length=255, null=True, blank=True)
     gender = models.CharField(max_length=255, blank=True, null=True, choices=GENDER_CHOICES)

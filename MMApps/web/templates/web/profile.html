@@ -98,7 +98,7 @@
                     </div>
                     <div class="info-item">
                         <label>Mobile:</label>
-                        <p>+91 97231 92735</p>
+                        <p>{{ account_info.mobile }}</p>
                     </div>
                     <div class="info-item">
                         <label>Gender:</label>
@@ -120,7 +120,7 @@
                 <div class="profile-info">
                     <div class="info-item">
                         <label>Address Line-1:</label>
-                        <p>42, Opera homes, nansad road</p>
+                        <p>{{ address_info.address_line1|title|default:'' }}</p>
                     </div>
                     <div class="info-item">
                         <label>Address Line-2:</label>

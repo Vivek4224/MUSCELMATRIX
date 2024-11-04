@@ -35,11 +35,17 @@ body {
   }
 }
 
-.profile-container {
-  display: flex;
-  justify-content: space-evenly;
+.profile_container {
   align-items: center;
-  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.all_info {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .profile-header {

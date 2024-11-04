@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.hashers import make_password
-from django.utils.crypto import get_random_string
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.utils.crypto import get_random_string   
 
 from MMApps.master.models import TimeStamp
 from MMApps.master.helpers.create_primary_key import generate_primary_key
@@ -29,10 +31,9 @@ class ClientProfile(TimeStamp):
         ('Female', 'Female'),
         ('Other', 'Other'),
     )
-
     POST_FIX = 'client_profile'
-    client = models.ForeignKey(Clients, on_delete=models.CASCADE, related_name='clients')
-    profile = models.ImageField(upload_to=f'{POST_FIX}s/', default='media/default-images/default_profile.png')
+    client = models.ForeignKey(Clients, on_delete=models.CASCADE, related_name='client_profile')
+    profile = models.ImageField(upload_to=f'{POST_FIX}s/', default='default-images/client-default.png')
     first_name = models.CharField(max_length=255, null=True, blank=True)
     last_name = models.CharField(max_length=255, null=True, blank=True)
     gender = models.CharField(max_length=255, blank=True, null=True, choices=GENDER_CHOICES)
@@ -84,3 +85,18 @@ class ClientMeasurements(TimeStamp):
     hip = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     chest = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     body_fat = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+
+@receiver(post_save, sender=Clients)
+def create_related_client_data(sender, instance, created, **kwargs):
+    if created:  # Only run this for newly created clients
+        # Create a related ClientProfile entry
+        ClientProfile.objects.create(client=instance)
+
+        # Create a related ClientAddress entry
+        ClientAddress.objects.create(client=instance)
+
+        # Create a related ClientMeasurements entry
+        ClientMeasurements.objects.create(client=instance)
+
+# Connect the signal
+post_save.connect(create_related_client_data, sender=Clients)

@@ -26,8 +26,8 @@
         </div>
         <div class="profile_picture">
             <div class="profile-header">
-                <img src="{{ profile_info.profile.url }}" alt="Profile Picture" class="profile-picture" />
-                <span class="block text-lg font-semibold mb-4">Current Profile</span>
+                <!-- <img src="{{ profile_info.profile.url }}" alt="Profile Picture" class="profile-picture" /> -->
+                <span class="block text-lg font-semibold mb-4">Change Profile</span>
                 <form action="{% url 'edit_profile_picture' %}" method="post" enctype="multipart/form-data"
                     class="flex flex-col items-center w-full">
                     {% csrf_token %}
@@ -97,153 +97,147 @@
             </div> -->
         </div>
         <div class="profile-container">
-            <form action="{% url 'edit_profile_view' %}" method="post">
+            <form action="{% url 'edit_profile' %}" method="post">
                 {% csrf_token %}
-                <div class="first_info">
-                    <div class="profile-info">
-                        <div class="info-item">
-                            <label for="first_name">First Name:</label>
-                            <input type="text" id="first_name" name="first_name" placeholder="John."
-                                class="text-gray-900 px-2 placeholder-gray-500"
-                                value="{% if profile_info.first_name %}{{ profile_info.first_name }}{% endif %}" />
-                        </div>
-                        <div class="info-item">
-                            <label for="last_name">Last Name:</label>
-                            <input type="text" id="last_name" name="last_name" placeholder="Smith."
-                                class="text-gray-900 px-2 placeholder-gray-500"
-                                value="{% if profile_info.last_name %}{{ profile_info.last_name }}{% endif %}" />
-                        </div>
-                        <div class="info-item relative group">
-                            <label for="email">Email:</label>
-                            <input type="text" id="email" name="email" placeholder="johnsmith@gmail.com"
-                                value="vivekbarvaliya4224@gmail.com" class="w-full text-white px-2 placeholder-gray-500"
-                                disabled />
-                            <span
-                                class="absolute left-4 top-full mt-0 bg-gray-800 text-white text-sm p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                You can't change this
-                            </span>
-                        </div>
-
-                        <div class="info-item flex items-center">
-                            <label for="mobile">Mobile:</label>
-                            <div class="flex items-center border border-gray-300 rounded">
-                                <span class="bg-gray-200 px-2 text-gray-900">+91</span>
-                                <input type="tel" id="mobile" name="mobile" placeholder="97XXX XXXXX"
-                                    class="text-gray-900 px-2 placeholder-gray-500 border-l border-gray-300 focus:outline-none"
-                                    value="{{ account_info.mobile }}" />
+                <div class="all_info">
+                    <div class="first_info">
+                        <div class="profile-info">
+                            <div class="info-item">
+                                <label for="first_name">First Name:</label>
+                                <input type="text" id="first_name" name="first_name" placeholder="John."
+                                    class="text-gray-900 px-2 placeholder-gray-500"
+                                    value="{% if profile_info.first_name %}{{ profile_info.first_name }}{% endif %}" />
+                            </div>
+                            <div class="info-item">
+                                <label for="last_name">Last Name:</label>
+                                <input type="text" id="last_name" name="last_name" placeholder="Smith."
+                                    class="text-gray-900 px-2 placeholder-gray-500"
+                                    value="{% if profile_info.last_name %}{{ profile_info.last_name }}{% endif %}" />
+                            </div>
+                            <div class="info-item relative group">
+                                <label for="email">Email:</label>
+                                <input type="text" id="email" name="email" placeholder="johnsmith@gmail.com"
+                                    value="vivekbarvaliya4224@gmail.com" class="w-full text-white px-2 placeholder-gray-500" disabled />
+                                <span
+                                    class="absolute left-4 top-full mt-0 bg-gray-800 text-white text-sm p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    You can't change this
+                                </span>
+                            </div>
+                    
+                            <div class="info-item flex items-center">
+                                <label for="mobile">Mobile:</label>
+                                <div class="flex items-center border border-gray-300 rounded">
+                                    <span class="bg-gray-200 px-2 text-gray-900">+91</span>
+                                    <input type="tel" id="mobile" name="mobile" placeholder="97XXX XXXXX"
+                                        class="text-gray-900 px-2 placeholder-gray-500 border-l border-gray-300 focus:outline-none"
+                                        value="{{ account_info.mobile }}" />
+                                </div>
+                            </div>
+                    
+                            <div class="info-item">
+                                <label for="gender">Gender:</label>
+                                <select id="gender" name="gender"
+                                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-1">
+                                    <option selected>Choose a Gender</option>
+                                    <option value="Male" {% if profile_info.gender == 'Male' %} selected {% endif %}>Male
+                                    </option>
+                                    <option value="Female" {% if profile_info.gender == 'Female' %} selected {% endif %}>
+                                        Female</option>
+                                    <option value="Others" {% if profile_info.gender == 'Others' %} selected {% endif %}>
+                                        Others</option>
+                                </select>
+                            </div>
+                            <div class="info-item">
+                                <label for="date_of_birth">DOB:</label>
+                                <input type="date" id="date_of_birth" name="date_of_birth"
+                                    value="{% if profile_info.dob %}{{ profile_info.dob|date:'Y-m-d' }}{% endif %}"
+                                    class="w-full text-gray-900 px-2 placeholder-gray-500" />
                             </div>
                         </div>
-
-                        <div class="info-item">
-                            <label for="gender">Gender:</label>
-                            <select id="gender" name="gender"
-                                class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-1">
-                                <option selected>Choose a Gender</option>
-                                <option value="Male" {% if profile_info.gender == 'Male' %} selected {% endif %}>Male
-                                </option>
-                                <option value="Female" {% if profile_info.gender == 'Female' %} selected {% endif %}>
-                                    Female</option>
-                                <option value="Others" {% if profile_info.gender == 'Others' %} selected {% endif %}>
-                                    Others</option>
-                            </select>
+                    </div>
+                    <div class="second_info">
+                        <div class="profile-info">
+                            <div class="info-item">
+                                <label for="address_line1">Address Line-1:</label>
+                                <input type="text" id="address_line1" name="address_line1"
+                                    value="{{ address_info.address_line1|title|default:'' }}" placeholder="123, society name"
+                                    class="text-gray-900 px-2 placeholder-gray-500" />
+                            </div>
+                            <div class="info-item">
+                                <label for="address_line2">Address Line-2:</label>
+                                <input type="text" id="address_line2" name="address_line2"
+                                    value="{{ address_info.address_line2|title|default:'' }}" placeholder="kamrej, surat"
+                                    class="text-gray-900 px-2 placeholder-gray-500" />
+                            </div>
+                            <div class="info-item">
+                                <label for="city">City:</label>
+                                <input type="text" id="city" name="city" placeholder="Surat"
+                                    value="{{ address_info.city|title|default:'' }}" class="text-gray-900 px-2 placeholder-gray-500" />
+                            </div>
+                            <div class="info-item">
+                                <label>State:</label>
+                                <input type="text" id="state" name="state" placeholder="Gujarat"
+                                    value="{{ address_info.state|title|default:'' }}" class="text-gray-900 px-2 placeholder-gray-500" />
+                            </div>
+                            <div class="info-item">
+                                <label>Zipcode:</label>
+                                <input type="text" id="zipcode" name="zipcode" placeholder="394180"
+                                    value="{{ address_info.zip_code|default:'' }}" class="text-gray-900 px-2 placeholder-gray-500" />
+                            </div>
+                            <div class="info-item">
+                                <label>Country:</label>
+                                <input type="text" id="country" name="country" placeholder="India"
+                                    value="{{ address_info.country|title|default:'' }}" class="text-gray-900 px-2 placeholder-gray-500" />
+                            </div>
                         </div>
-                        <div class="info-item">
-                            <label for="date_of_birth">DOB:</label>
-                            <input type="date" id="date_of_birth" name="date_of_birth"
-                                value="{% if profile_info.dob %}{{ profile_info.dob|date:'Y-m-d' }}{% endif %}"
-                                class="w-full text-gray-900 px-2 placeholder-gray-500" />
+                    </div>
+                    <div class="third_info">
+                        <div class="profile-info">
+                            <div class="info-item">
+                                <label for="height">Height:</label>
+                                <input type="text" id="height" name="height" placeholder="5'8"
+                                    class="text-gray-900 px-2 placeholder-gray-500" value="{{ profile_info.height|default:0 }}" />
+                            </div>
+                            <div class=" info-item">
+                                <label for="weight">Weight:</label>
+                                <input type="text" id="weight" name="weight" placeholder="90"
+                                    class="text-gray-900 px-2 placeholder-gray-500" value="{{ profile_info.weight|default:0 }}" />
+                            </div>
+                            <div class=" info-item">
+                                <label for="chest">Chest:</label>
+                                <input type="text" id="chest" name="chest" placeholder="36'" class="text-gray-900 px-2 placeholder-gray-500"
+                                    value="{{ profile_info.chest|default:0 }}" />
+                            </div>
+                            <div class=" info-item">
+                                <label for="waist">Waist:</label>
+                                <input type="text" id="waist" name="waist" placeholder="25'" class="text-gray-900 px-2 placeholder-gray-500"
+                                    value="{{ profile_info.waist|default:0 }}" />
+                            </div>
+                            <div class="info-item">
+                                <label for="hip">Hip:</label>
+                                <input type="text" id="hip" name="hip" placeholder="25'" class="text-gray-900 px-2 placeholder-gray-500"
+                                    value="{{ profile_info.hip|default:0 }}" />
+                            </div>
+                            <div class="info-item">
+                                <label for="body_fat">Body Fat:</label>
+                                <input type="text" id="body_fat" name="body_fat" placeholder="30%"
+                                    class="text-gray-900 px-2 placeholder-gray-500" value="{{measurements_info.body_fat|default:0}}" />
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="second_info">
-                    <div class="profile-info">
-                        <div class="info-item">
-                            <label for="address_line1">Address Line-1:</label>
-                            <input type="text" id="address_line1" name="address_line1"
-                                value="{{ address_info.address_line1|title|default:'' }}"
-                                placeholder="123, society name" class="text-gray-900 px-2 placeholder-gray-500" />
-                        </div>
-                        <div class="info-item">
-                            <label for="address_line2">Address Line-2:</label>
-                            <input type="text" id="address_line2" name="address_line2"
-                                value="{{ address_info.address_line2|title|default:'' }}" placeholder="kamrej, surat"
-                                class="text-gray-900 px-2 placeholder-gray-500" />
-                        </div>
-                        <div class="info-item">
-                            <label for="city">City:</label>
-                            <input type="text" id="city" name="city" placeholder="Surat"
-                                value="{{ address_info.city|title|default:'' }}"
-                                class="text-gray-900 px-2 placeholder-gray-500" />
-                        </div>
-                        <div class="info-item">
-                            <label>State:</label>
-                            <input type="text" id="state" name="state" placeholder="Gujarat"
-                                value="{{ address_info.state|title|default:'' }}"
-                                class="text-gray-900 px-2 placeholder-gray-500" />
-                        </div>
-                        <div class="info-item">
-                            <label>Zipcode:</label>
-                            <input type="text" id="zipcode" name="zipcode" placeholder="394180"
-                                value="{{ address_info.zip_code|default:'' }}"
-                                class="text-gray-900 px-2 placeholder-gray-500" />
-                        </div>
-                        <div class="info-item">
-                            <label>Country:</label>
-                            <input type="text" id="country" name="country" placeholder="India"
-                                value="{{ address_info.country|title|default:'' }}"
-                                class="text-gray-900 px-2 placeholder-gray-500" />
-                        </div>
-                    </div>
-                </div>
-                <div class="third_info">
-                    <div class="profile-info">
-                        <div class="info-item">
-                            <label for="height">Height:</label>
-                            <input type="text" id="height" name="height" placeholder="5'8"
-                                class="text-gray-900 px-2 placeholder-gray-500" value="{{ profile_info.height|default:0 }}/>
-                        </div>
-                        <div class=" info-item">
-                            <label for="weight">Weight:</label>
-                            <input type="text" id="weight" name="weight" placeholder="90"
-                                class="text-gray-900 px-2 placeholder-gray-500" value="{{ profile_info.weight|default:0 }}/>
-                        </div>
-                        <div class=" info-item">
-                            <label for="chest">Chest:</label>
-                            <input type="text" id="chest" name="chest" placeholder="36'"
-                                class="text-gray-900 px-2 placeholder-gray-500"
-                                value="{{ profile_info.chest|default:0 }}" />
-                        </div>
-                        <div class=" info-item">
-                            <label for="waist">Waist:</label>
-                            <input type="text" id="waist" name="waist" placeholder="25'"
-                                class="text-gray-900 px-2 placeholder-gray-500"
-                                value="{{ profile_info.waist|default:0 }}" />
-                        </div>
-                        <div class="info-item">
-                            <label for="hip">Hip:</label>
-                            <input type="text" id="hip" name="hip" placeholder="25'"
-                                class="text-gray-900 px-2 placeholder-gray-500"
-                                value="{{ profile_info.hip|default:0 }}" />
-                        </div>
-                        <div class="info-item">
-                            <label for="body_fat">Body Fat:</label>
-                            <input type="text" id="body_fat" name="body_fat" placeholder="30%"
-                                class="text-gray-900 px-2 placeholder-gray-500"
-                                value="{{measurements_info.body_fat|default:0}}" />
-                        </div>
-                    </div>
+                <div class="btn">
+                    <button class="frame__prev" type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-save"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1z" />
+                        </svg>
+                        Save Changes</button>
                 </div>
             </form>
         </div>
-        <div class="btn">
-            <button class="frame__prev" type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-save"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1z" />
-                </svg>
-                Save Changes</button>
-        </div>
+        
     </div>
 </body>
 

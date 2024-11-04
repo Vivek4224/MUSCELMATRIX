@@ -48,16 +48,16 @@ class webView:
         # subscription_info = ClientSubscription.objects.filter(client_id=request.session['client_id']).first()
 
         context = {
-                    'account_info': account_info,
-                    'profile_info': profile_info,
-                    'address_info': address_info,
-                    'measurements_info': measurements_info,
-                    # 'subscription': subscription_info
-                }
-        return render(request, 'web/profile.html')
+            'account_info': account_info,
+            'profile_info': profile_info,
+            'address_info': address_info,
+            'measurements_info': measurements_info,
+            # 'subscription': subscription_info
+            }
+        return render(request, 'web/profile.html', context)
     
     @method_decorator(login_required)
-    def edit_profile_view(self, request):
+    def edit_profile(self, request):
         if request.method == 'POST':
             first_name_ = request.POST['first_name']
             last_name_ = request.POST['last_name']
@@ -113,7 +113,7 @@ class webView:
             get_measurements_info.save()
 
             messages.success(request, "Profile updated successfully.")
-        return render(request, 'web/profile_form/edit_profile.html')
+        return render(request,'web/profile_form/edit_profile.html')
         
     def edit_profile_picture(self, request):
         if request.method == 'POST':

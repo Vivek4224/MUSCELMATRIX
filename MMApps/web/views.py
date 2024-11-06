@@ -59,13 +59,14 @@ class webView:
     @method_decorator(login_required)
     def edit_profile(self, request):
         if request.method == 'POST':
+            # Process the form submission
             first_name_ = request.POST['first_name']
             last_name_ = request.POST['last_name']
             mobile_ = request.POST['mobile']
             gender_ = request.POST['gender']
             dob_ = request.POST['date_of_birth']
-            adderss_line1_ = request.POST['line1']
-            adderss_line2_ = request.POST['line2']
+            address_line1_ = request.POST['line1']
+            address_line2_ = request.POST['line2']
             city_ = request.POST['city']
             state_ = request.POST['state']
             zipcode_ = request.POST['zipcode']
@@ -77,43 +78,62 @@ class webView:
             chest_ = request.POST['chest']
             body_fat_ = request.POST['body_fat']
 
+            # Update the client's personal information
             get_account_info = Clients.objects.get(client_id=request.session['client_id'])
             get_account_info.mobile = mobile_
             get_account_info.save()
 
+            # Update the profile information
             get_profile_info = ClientProfile.objects.get(client_id=request.session['client_id'])
             get_profile_info.first_name = first_name_
             get_profile_info.last_name = last_name_
             get_profile_info.gender = gender_
-
             if not dob_:
                 get_profile_info.dob = None  # Handle empty date value
             else:
                 get_profile_info.dob = dob_
-
-
             get_profile_info.save()
 
+            # Update the address information
             get_address_info = ClientAddress.objects.get(client_id=request.session['client_id'])
-            get_address_info.address_line1 = adderss_line1_
-            get_address_info.address_line2 = adderss_line2_
+            get_address_info.address_line1 = address_line1_
+            get_address_info.address_line2 = address_line2_
             get_address_info.city = city_
             get_address_info.state = state_
             get_address_info.zip_code = zipcode_
             get_address_info.country = country_
             get_address_info.save()
 
+            # Update the client's measurements
             get_measurements_info = ClientMeasurements.objects.get(client_id=request.session['client_id'])
             get_measurements_info.height = height_
             get_measurements_info.weight = weight_
             get_measurements_info.waist = waist_
             get_measurements_info.hip = hip_
             get_measurements_info.chest = chest_
-            get_measurements_info.body_fat= body_fat_
+            get_measurements_info.body_fat = body_fat_
             get_measurements_info.save()
 
+            # Show success message and redirect
             messages.success(request, "Profile updated successfully.")
-        return render(request,'web/profile_form/edit_profile.html')
+            return redirect('profile_view')
+
+        else:
+            # Handle GET request: pre-fill the form with the existing data
+            get_account_info = Clients.objects.get(client_id=request.session['client_id'])
+            get_profile_info = ClientProfile.objects.get(client_id=request.session['client_id'])
+            get_address_info = ClientAddress.objects.get(client_id=request.session['client_id'])
+            get_measurements_info = ClientMeasurements.objects.get(client_id=request.session['client_id'])
+
+            # Pass the data to the template for rendering
+            context = {
+                'account_info': get_account_info,
+                'profile_info': get_profile_info,
+                'address_info': get_address_info,
+                'measurements_info': get_measurements_info,
+            }
+
+            return render(request, 'web/profile_form/edit_profile.html', context)
         
     def edit_profile_picture(self, request):
         if request.method == 'POST':

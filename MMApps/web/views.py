@@ -32,6 +32,8 @@ def login_required(view_func):
 class webView:
     def index_view(self, request):
         return render(request, 'web/index.html')
+    def services_view(self, request):
+        return render(request, 'web/services.html')
     
     def about_view(self, request):
         return render(request, 'web/About.html')

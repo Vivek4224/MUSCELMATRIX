@@ -841,67 +841,122 @@ button:hover {
 }
 
 /* learnmore card */
-
 .Card {
   display: flex;
-  margin-left: 22.5%;
-  background-color: antiquewhite;
-
-  width: 1000px;
-  height: 700px;
-  margin-top: 5%;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  background-color: #352fe6;
+  width: 80%;
+  height: 400px;
   border-radius: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation on hover */
+}
+
+.Card:hover {
+  transform: translateY(-10px); /* Lift card on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.img_card {
+  width: 45%; /* Fixed width for the image container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img_card img {
+  width: 100%; /* Make the image fill the container */
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .Detail {
-  color: black;
-  margin-left: 25px;
+  color: white;
+  width: 50%;
+  margin-left: 20px; /* Space between image and text */
+}
+
+.lm_title {
+  font-size: 2.5rem;
+  color: #fff;
+  font-family: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.Detail p {
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.card_buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_buttons button {
+  background-color: #ff8a00; /* Button color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.card_buttons button:hover {
+  background-color: #e07b00; /* Button hover color */
 }
 
 p {
   margin-top: 30px;
+  color: #fff;
 }
 
 .image {
-  height: 500px;
   margin-left: 20px;
   margin-top: 100px;
 }
 
-.buy {
-  width: 150px;
-  height: 50px;
-  border-radius: 5px;
-  border: 1px solid black;
-  background-color: #3f8cea;
-  color: aliceblue;
-  box-shadow: 0 5px #999;
-}
-.buy:hover {
-  background-color: #3e8e41;
+/* Add fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.buy:active {
-  background-color: #3e8e41;
-  box-shadow: 0 2px #666;
-  transform: translateY(4px);
+body {
+  animation: fadeIn 1.5s ease-in-out;
 }
 
-.add {
-  width: 150px;
-  height: 50px;
-  border-radius: 5px;
-  border: 1px solid #000;
-  background-color: #3f8cea;
-  color: aliceblue;
-  box-shadow: 0 5px #999;
-}
-.add:hover {
-  background-color: #3e8e41;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .Card {
+    flex-direction: column;
+    height: auto; /* Allow the card to grow on smaller screens */
+  }
+
+  .img_card {
+    width: 100%; /* Make the image container take full width */
+    margin-bottom: 20px; /* Add spacing between the image and the text */
+  }
+
+  .Detail {
+    width: 100%;
+    margin-left: 0; /* Remove margin on small screens */
+  }
+
+  .lm_title {
+    font-size: 1.8rem;
+  }
 }
 
-.add:active {
-  background-color: #3e8e41;
-  box-shadow: 0 2px #666;
-  transform: translateY(4px);
-}

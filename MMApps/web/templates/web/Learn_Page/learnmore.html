@@ -1,0 +1,91 @@
+{% extends 'web/web_base.html' %}
+{% load static %}
+
+<head>
+    {% block title %} Learn More {% endblock %} | MUSCLEMATRIX
+    {% block style %} {% endblock %}<style></style>
+</head>
+
+{% block body %}
+
+<body class="loading">
+    <main>
+        <div class="intro">
+            <div id="item-intro" class="content content--intro">
+                <div class="content__img-wrap">
+                    <div class="content__img content__img--1">
+                        <div class="content__img-inner"
+                            style="background-image:url({% static 'web/images/about_img/about_main.jpg' %});"></div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="intro__title">
+                <span class="intro__title-pre">LEARN ABOUT PLAN</span>
+            </h1>
+            <span class="intro__info">Let’s Get Sweaty! 💦 <br> Scroll to See What’s Next</span>
+        </div>
+
+        <!-- Plan Sections -->
+        <section>
+            <div class="Card">
+                <div>
+                    <img src="https://www.swordsuk.co.uk/cdn/shop/products/2_5eff5592-6bde-464d-a4ef-40900d556826.jpg?v=1675578513&width=600"
+                        class="image" />
+                </div>
+
+                <div class="Detail">
+                    <div>
+                        <h1>Roronoa Zoro's Shusui Katana</h1>
+                        <p>
+                            The Shusui Katana, famously wielded by Roronoa Zoro, is a must-have
+                            for fans of the legendary anime series and manga series One Piece,
+                            created by Eiichiro Oda. Featured in both the live action series and
+                            the adventures of Monkey D. Luffy, this sword plays a key role as
+                            Zoro journeys across the Grand Line with the Straw Hat Pirates,
+                            seeking the ultimate treasure. From the early days in East Blue to
+                            epic battles in Strong World, this katana captures the spirit of
+                            Zoro’s character and the story arcs that define his journey. Its
+                            heat treat process ensures durability, while the black blade with
+                            its red zigzag pattern mirrors the dramatic visuals of the One Piece
+                            films and series. A tribute to the rich lore of One Piece!
+                        </p>
+                        <h2>Zoro's Shusui Sword Specifications</h2>
+
+                        <p>
+                            Overall Length: 105cm / 41.3'' <br />
+                            Nagasa(Blade): 72cm / 28.3''<br />
+                            Motohaba(Width Near Habaki): 3.2cm <br />
+                            Tsuka(Handle): 26.5cm Blade <br />
+                            Thicknes: 0.7cm Blade: 1095 High Carbon Steel <br />
+                            Saya Material: Hardwood+Alloy <br />
+                            Fittings Handle Material: Hardwood+Fake Rayskin <br />
+                        </p>
+
+                        <button class="buy">Buy Now</button>
+                        <button class="add">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>6-Month Plan</h2>
+            <p>Details about the 6-month plan...</p>
+        </section>
+
+        <section>
+            <h2>12-Month Plan</h2>
+            <p>Details about the 12-month plan...</p>
+        </section>
+
+        <p class="credits">Made by <a href="https://twitter.com/codrops">@vivekbarvaliya</a></p>
+    </main>
+
+    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/splitting.min.js' %}"></script>
+    <script src="{% static 'js/gsap.min.js' %}"></script>
+    <script src="{% static 'js/ScrollTrigger.min.js' %}"></script>
+    <script src="{% static 'js/lenis.min.js' %}"></script>
+    <script type="module" src="{% static 'js/index.js' %}"></script>
+</body>
+{% endblock %}

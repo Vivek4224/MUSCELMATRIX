@@ -560,15 +560,15 @@ body #cdawrap {
 
 /* card  */
 :root {
-  --bg-dark: #0a0b0f;
+  --bg-dark: #04002f;
   --card-bg: rgba(18, 20, 28, 0.95);
   --card-hover: #1a1d2a;
   --text-primary: #ffffff;
   --text-secondary: #8b8d93;
-  --accent: #4a90ff;
-  --gradient-1: #4a90ff;
-  --gradient-2: #415261;
-  --gradient-3: #2e3192;
+  --accent: #350ced;
+  --gradient-1: #350ced;
+  --gradient-2: #04002f;
+  --gradient-3: #100064;
   --shadow-color: rgba(74, 144, 255, 0.1);
 }
 
@@ -838,4 +838,70 @@ button:hover {
 
 .card:hover .card-content {
   animation: float 3s ease infinite;
+}
+
+/* learnmore card */
+
+.Card {
+  display: flex;
+  margin-left: 22.5%;
+  background-color: antiquewhite;
+
+  width: 1000px;
+  height: 700px;
+  margin-top: 5%;
+  border-radius: 20px;
+}
+
+.Detail {
+  color: black;
+  margin-left: 25px;
+}
+
+p {
+  margin-top: 30px;
+}
+
+.image {
+  height: 500px;
+  margin-left: 20px;
+  margin-top: 100px;
+}
+
+.buy {
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: #3f8cea;
+  color: aliceblue;
+  box-shadow: 0 5px #999;
+}
+.buy:hover {
+  background-color: #3e8e41;
+}
+
+.buy:active {
+  background-color: #3e8e41;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+
+.add {
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  background-color: #3f8cea;
+  color: aliceblue;
+  box-shadow: 0 5px #999;
+}
+.add:hover {
+  background-color: #3e8e41;
+}
+
+.add:active {
+  background-color: #3e8e41;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
 }

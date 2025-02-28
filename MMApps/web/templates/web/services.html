@@ -4,7 +4,6 @@
 <head>
     {% block title %} Home {% endblock %} | MUSCLEMATRIX
     {% block style %} {% endblock %}<style></style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
@@ -41,17 +40,18 @@
                             <div class="card_img">
                                 <img src="../../static/web/images/Services_img/1.jpeg" alt="">
                             </div>
-                            <i class="fas fa-crown fa-2x"></i>
+
                         </div>
-                        <h2><i class="fas fa-star"></i>
+                        <h2>
                             3-Month Membership: Only ₹2999
                         </h2>
                         <p>Get 3 months of full gym access for just ₹2999. Achieve your fitness goals with expert
                             support!
                         </p>
                         <div class="card_buttons">
-                            <button><i class=" fas fa-arrow-right"></i>Learn More</button>
-                            <button><i class="fas fa-arrow-right"></i>Pay Now</button>
+                            <!-- services.html -->
+                            <button onclick="window.location.href='{% url 'learn_view' %}';">Learn More</button>
+                            <button>Pay Now</button>
                         </div>
                     </div>
                 </div>

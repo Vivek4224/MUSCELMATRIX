@@ -38,6 +38,9 @@ class webView:
     
     def learn_view(self, request):
             return render(request, 'web/Learn_Page/learnmore.html')
+    
+    def s_learn_view(self, request):
+            return render(request, 'web/s_LearnMore/s_learnmore.html')
 
     def about_view(self, request):
         return render(request, 'web/About.html')

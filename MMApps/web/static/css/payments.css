@@ -1,0 +1,258 @@
+:root {
+  font-size: 16px;
+  --color-text: #fff;
+  --color-bg: #0b0826;
+  --color-bg-alt: hsl(222.55deg 100% 49.22%);
+  --color-link: #fff;
+  --color-link-hover: #fff;
+  --color-title: #fff;
+}
+
+body {
+  font-family: "Tenon", Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  position: relative;
+  background: var(--color-bg-alt);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 800px;
+}
+
+h1 {
+  color: var(--color-title);
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.plan-selection,
+.payment-method {
+  background: var(--color-bg);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid var(--color-title);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+select:hover {
+  border-color: var(--color-bg);
+}
+
+.amount {
+  font-size: 1.2rem;
+  color: var(--color-title);
+  margin-top: 10px;
+}
+
+.payment-options {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.payment-btn {
+  padding: 10px 20px;
+  border: none;
+  background: var(--color-text);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.payment-btn:hover {
+  background: var(--color-bg-alt);
+  transform: scale(1.05);
+}
+
+.payment-btn.active {
+  background: var(--color-title);
+  color: var(--color-text);
+}
+
+.payment-form {
+  background: var(--color-bg);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+.payment-form.hidden {
+  display: none;
+}
+
+h2 {
+  color: var(--color-title);
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+input:focus {
+  border-color: var(--color-bg);
+  transform: scale(1.02);
+  outline: none;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.submit-btn,
+.download-btn {
+  background: #28a745;
+  color: var(--color-bg);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  margin-top: 10px;
+}
+
+.submit-btn:hover,
+.download-btn:hover {
+  background: var(--color-bg-alt);
+}
+
+label {
+  margin-top: 10px;
+  color: var(--color-title);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin: 5px 0;
+  color: var(--color-title);
+}
+
+li input[type="radio"] {
+  margin-right: 10px;
+}
+
+.success-message {
+  background-color: #28a745;
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px #28a745;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.success-message.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.check-mark {
+  font-size: 2.5rem;
+  display: inline-block;
+  animation: swing 1s ease-in-out infinite alternate;
+}
+
+@keyframes swing {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(15deg); }
+}
+
+.hidden {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  .payment-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .payment-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  h1 {
+    font-size: 1.3rem;
+  }
+  
+  select, input {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .submit-btn, .download-btn {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+}

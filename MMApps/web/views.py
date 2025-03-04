@@ -49,6 +49,10 @@ class webView:
         return render(request, 'web/contact.html')
     
     @method_decorator(login_required)
+    def payments_view(self, request):
+            return render(request, 'web/payments/payments.html')
+    
+    @method_decorator(login_required)
     def profile_view(self, request):
         account_info = Clients.objects.filter(client_id=request.session['client_id']).first()
         profile_info = ClientProfile.objects.filter(client_id=request.session['client_id']).first()

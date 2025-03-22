@@ -2,13 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gym Membership Payment</title>
     <link rel="shortcut icon" href="../../../static/web/images/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="../../../static/css/payments.css">
+    <link rel="stylesheet" href="../../../static/css/payments.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> <!-- GSAP Added -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- GSAP Added -->
 </head>
 
 <body>
@@ -18,9 +19,9 @@
             <h2>Select Your Membership Plan</h2>
             <select id="planSelect" onchange="updateAmount()">
                 <option value="0">Select a plan</option>
-                <option value="2999">3 Months - ₹2999</option>
-                <option value="4999">6 Months - ₹4999</option>
-                <option value="9999">12 Months - ₹9999</option>
+                <option value="2999">3 Months</option>
+                <option value="4999">6 Months</option>
+                <option value="9999">12 Months</option>
             </select>
             <p class="amount">Amount: ₹<span id="amount">0</span></p>
         </div>
@@ -28,9 +29,15 @@
         <div class="payment-method">
             <h2>Select Payment Method</h2>
             <div class="payment-options">
-                <button class="payment-btn" onclick="showCreditCard()">Credit Card</button>
-                <button class="payment-btn" onclick="showDebitCard()">Debit Card</button>
-                <button class="payment-btn" onclick="showNetBanking()">Net Banking</button>
+                <button class="payment-btn" onclick="showCreditCard()">
+                    Credit Card
+                </button>
+                <button class="payment-btn" onclick="showDebitCard()">
+                    Debit Card
+                </button>
+                <button class="payment-btn" onclick="showNetBanking()">
+                    Net Banking
+                </button>
                 <button class="payment-btn" onclick="showUPI()">UPI</button>
             </div>
         </div>
@@ -39,22 +46,25 @@
             <h2>Credit Card Info</h2>
             <form id="creditForm">
                 <label>CUSTOMER NAME</label>
-                <input type="text" id="customerNameCredit" placeholder="Enter your name" required>
+                <input type="text" id="customerNameCredit" placeholder="Enter your name" required />
                 <label>CARD NUMBER</label>
-                <input type="text" placeholder="0000-0000-0000-0000" required>
+                <input type="text" placeholder="0000-0000-0000-0000" required />
                 <div class="row">
                     <div>
                         <label>EXPIRATION</label>
-                        <input type="number" placeholder="MM" style="width: 50px;"> /
-                        <input type="number" placeholder="YY" style="width: 50px;">
+                        <input type="number" placeholder="MM" style="width: 50px" /> /
+                        <input type="number" placeholder="YY" style="width: 50px" />
                     </div>
                     <div>
                         <label>CVV NUMBER</label>
-                        <input type="text" placeholder="XXX" required>
+                        <input type="text" placeholder="XXX" required />
                     </div>
                 </div>
-                <label><input type="checkbox"> I agree to the Terms & Conditions & Privacy Policy.</label>
-                <button class="submit-btn" onclick="confirmPayment('credit',event)">SUBMIT</button>
+                <label><input type="checkbox" /> I agree to the Terms & Conditions &
+                    Privacy Policy.</label>
+                <button class="submit-btn" onclick="confirmPayment('credit',event)">
+                    SUBMIT
+                </button>
             </form>
         </div>
 
@@ -62,22 +72,25 @@
             <h2>Debit Card Info</h2>
             <form id="debitForm">
                 <label>CUSTOMER NAME</label>
-                <input type="text" id="customerNameDebit" placeholder="Enter your name" required>
+                <input type="text" id="customerNameDebit" placeholder="Enter your name" required />
                 <label>CARD NUMBER</label>
-                <input type="text" placeholder="0000-0000-0000-0000" required>
+                <input type="text" placeholder="0000-0000-0000-0000" required />
                 <div class="row">
                     <div>
                         <label>EXPIRATION</label>
-                        <input type="number" placeholder="MM" style="width: 50px;"> /
-                        <input type="number" placeholder="YY" style="width: 50px;">
+                        <input type="number" placeholder="MM" style="width: 50px" /> /
+                        <input type="number" placeholder="YY" style="width: 50px" />
                     </div>
                     <div>
                         <label>CVV NUMBER</label>
-                        <input type="text" placeholder="XXX" required>
+                        <input type="text" placeholder="XXX" required />
                     </div>
                 </div>
-                <label><input type="checkbox"> I agree to the Terms & Conditions & Privacy Policy.</label>
-                <button class="submit-btn" onclick="confirmPayment('debit',event)">SUBMIT</button>
+                <label><input type="checkbox" /> I agree to the Terms & Conditions &
+                    Privacy Policy.</label>
+                <button class="submit-btn" onclick="confirmPayment('debit',event)">
+                    SUBMIT
+                </button>
             </form>
         </div>
 
@@ -85,7 +98,7 @@
             <h2>Net Banking</h2>
             <form id="netBankingForm">
                 <label for="customerNameNetBanking">CUSTOMER NAME</label>
-                <input type="text" id="customerNameNetBanking" placeholder="Enter your name" required>
+                <input type="text" id="customerNameNetBanking" placeholder="Enter your name" required />
 
                 <label for="bankSelect">SELECT YOUR BANK</label>
                 <select id="bankSelect" required>
@@ -97,19 +110,22 @@
                     <option value="IDBI Bank">IDBI Bank</option>
                 </select>
 
-                <button class="submit-btn" onclick="confirmPayment('netbanking',event)">CONTINUE</button>
+                <button class="submit-btn" onclick="confirmPayment('netbanking',event)">
+                    CONTINUE
+                </button>
             </form>
-
         </div>
 
         <div id="upi-form" class="payment-form hidden">
             <h2>UPI Payment</h2>
             <form id="upiForm">
                 <label>CUSTOMER NAME</label>
-                <input type="text" id="customerNameUPI" placeholder="Enter your name" required>
+                <input type="text" id="customerNameUPI" placeholder="Enter your name" required />
                 <label>UPI ID</label>
-                <input type="text" placeholder="Enter UPI ID (e.g., user@bank)" required>
-                <button class="submit-btn" onclick="confirmPayment('upi',event)">SUBMIT</button>
+                <input type="text" placeholder="Enter UPI ID (e.g., user@bank)" required />
+                <button class="submit-btn" onclick="confirmPayment('upi',event)">
+                    SUBMIT
+                </button>
             </form>
         </div>
 
@@ -118,7 +134,9 @@
             <p>Payment Successful!</p>
             <p>Customer Name: <span id="successCustomerName"></span></p>
             <p>Selected Plan Amount: ₹<span id="successAmount">0</span></p>
-            <button class="download-btn" onclick="downloadReceipt()">Download Receipt (PDF)</button>
+            <button class="download-btn" onclick="downloadReceipt()">
+                Download Receipt (PDF)
+            </button>
         </div>
     </div>
 
